@@ -2,10 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 
 const app = express();
 const port = 3000;
-const SECRET_KEY = 'your_secret_key'; // Change this to a strong random key in a real application
+const SECRET_KEY = crypto.randomBytes(64).toString('hex'); // Generate a strong random key
 
 app.use(bodyParser.json());
 
